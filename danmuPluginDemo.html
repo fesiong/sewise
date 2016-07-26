@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<script src="js/jquery.min.js"></script>
+		<script src="sewise.player.min.js"></script>
+		<script src="plugin/sewise.player.danmu.min.js"></script>
+	</head>
+	<body>
+		<script>
+		    var host="http://192.168.1.124/sewiseplayer_js_3.0.0/bin/"
+		    var config={
+		    	elid:"con1",
+		    	autostart:true,
+		    	type:"mp4",
+                url:host+"test.mp4",
+		    	skin:"vodWhite"
+		    };
+		    var danmuParams={
+                  height: "100%",  //弹幕区高度
+                  width: "640",   //弹幕区宽度
+                  zindex :20,   //弹幕区域z-index属性
+                  speed:7000,      //滚动弹幕的默认速度（毫秒）
+             };
+		     $(document).ready(dowReady);
+		    
+		    var player;//播放器
+		    var danmu;//弹幕插件
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+		       danmu=new SewiseDanmu(danmuParams);
+		       player.plugins={"danmu":danmu};//注册插件
+			   player.startup();//启动播放器
+			   
+		    }
+		    
+		    function btnClick1(){
+		    	var txt = $("#txtID1").get(0).value;
+                if(txt.length == 0){
+                  return;
+                }
+                if(txt.length > 255){
+                  alert("弹幕过长！");
+                  return;
+                }
+                txt = txt.replace(/&/g, "&gt;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\"/g, "&quot;").replace(/\n/g, "<br>");
+                var color = "yellow";
+                var position = 0;
+                var size =1;
+                var data={ "text":txt ,"color":color,"size":size,"position":position,"isnew":1};
+                danmu.addDanmu(data);
+		    }
+		    function btnClick2(){
+		    	var txt = $("#txtID2").get(0).value;
+                var color = "#ff0000";
+                var position = 1;
+                var size =1;
+                var data={ "text":txt ,"color":color,"size":size,"position":position,"isnew":0};
+                danmu.addDanmu(data);
+		    }
+		    function btnClick3(){
+		    	//sendDanmuList(); return;
+		    	var txt = $("#txtID3").get(0).value;
+                var color = "yellow";
+                var position = 2;
+                var size =1;
+                var data={ "text":txt ,"color":color,"size":size,"position":position,"isnew":0};
+                danmu.addDanmu(data);
+		    }
+		    function sendDanmuList(){
+		    	var listData=[{ text:"这是滚动弹幕" ,color:"white",size:1,position:0,time:20},
+                { text:"我是绿巨人" ,color:"green",size:1,position:0,time:30},
+                { text:"滚动吧滚动" ,color:"green",size:1,position:0,time:100},
+                { text:"这是顶部弹幕" ,color:"yellow" ,size:1,position:1,time:30},
+                { text:"这是底部弹幕" , color:"red" ,size:1,position:2,time:9},
+                { text:"科比即将退役" ,color:"orange",size:1,position:1,time:30}
+               ];
+               danmu.addDanmuList(listData);
+		    }
+		    function btnOpenClick(){
+		    	if(danmu.danmuShowed){
+		    		danmu.openDanmu(false);
+		    		$("#btnOpen").text("开启弹幕");
+		    	}else{
+		    		danmu.openDanmu(true);
+		    		$("#btnOpen").text("关闭弹幕");
+		    	}
+		    	   
+		    }
+		</script>
+		<div id="con1" style="width:640px;height:352px;background-color: aqua;"></div>
+		<br/>
+		<input type="text" id="txtID1" value="" /><button onclick="btnClick1()">发送滚动弹幕</button>
+		<input type="text" id="txtID2" value="" /><button onclick="btnClick2()">发送顶部弹幕</button>
+		<input type="text" id="txtID3" value="" /><button onclick="btnClick3()">发送底部弹幕</button>
+		<button id="btnOpen" onclick="btnOpenClick()">关闭弹幕</button>
+	</body>
+</html>

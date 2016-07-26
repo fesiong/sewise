@@ -34,9 +34,7 @@
 	overflow: hidden;
 	list-style-type: none;
 }
-.vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns > * {
-	padding-left: 5px;
-}
+
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns li {
 	float: left;
 }
@@ -59,6 +57,7 @@
 	height: 20px;
 	color: white;
 	line-height:20px;
+	padding-right: 10px;
 	text-align: center;
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns div.controlbar-progress {
@@ -67,7 +66,7 @@
 	width: 315px;
 	height: 20px;
 	top: 0px;
-	left: 10px;
+	left: 0px;
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar div.controlbar-progress div.controlbar-progress-totalline {
 	position: absolute;
@@ -117,10 +116,13 @@
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-fullscreen {
 	background: url("controlbar.png") 0px -100px no-repeat;
 	padding-right: 5px;
+	margin-left: 9px;
+	
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-normalscreen {
 	background: url("controlbar.png") 0px -120px no-repeat;
 	padding-right: 5px;
+	margin-left: 9px;
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns div.controlbar-volumeline {
 	position: relative;
@@ -128,6 +130,7 @@
 	width: 80px;
 	height: 20px;
 	top: 0px;
+	
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar div.controlbar-volumeline div.controlbar-volumeline-bg {
 	position: absolute;
@@ -162,9 +165,11 @@
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-soundclose {
 	background: url("controlbar.png") 0px -60px no-repeat;
+	padding-right: 5px;
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-soundopen {
 	background: url("controlbar.png") 0px -80px no-repeat;
+	padding-right: 5px;
 }
 .vodFlowPlayer div.sewise-player-ui div.controlbar ul.controlbar-btns div.controlbar-totaltime {
 	position: relative;
@@ -174,10 +179,57 @@
 	height: 20px;
 	color: white;
 	line-height: 20px;
+	padding-left: 10px;
+	padding-right: 5px;
 	text-align: center;
 }
-
-
+/**------------------------------清晰度选择面板-------------------*/
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window{
+	position:absolute;
+	width: 320px;
+	height: 160px;
+	left: 50%;
+	top: 50%;
+	margin-left:-160px; 
+	margin-top:-80px;
+	pointer-events: auto;
+	display: none;
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-box{
+	position:absolute;
+	width: 300px;
+	height: 140px;
+	color: #FFF; 
+	border: 2px solid #FF9501;
+	padding: 10px;
+	background:rgba(255, 149, 1, 0.3);
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-Title{
+	float: left; 
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-Close{
+	float: right;
+	cursor: pointer;
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-Close a{
+	color: #FFF; font-weight:bold; text-decoration: none; padding: 4px 6px; 
+	cursor: pointer;
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-radios-group{
+	width: 100%; height: 40px; padding: 30px 0px 10px 0px; text-align: center; clear: both;
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-radios-group input{
+	width: 20px; height: 18px;
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-btns{
+	padding: 10px; text-align: center;
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-btns .clarity-btn-ok{
+	color: #FFF; text-decoration: none; background-color: #FF9501; padding: 5px 17px; margin-right: 20px;
+}
+.vodFlowPlayer div.sewise-player-ui .controlbar-clarity-window .clarity-btns .clarity-btn-cancel{
+	color: #FFF; text-decoration: none; background-color: #FF9501; padding: 5px 5px; margin-left: 20px;
+}
 /*logo*/
 .vodFlowPlayer div.sewise-player-ui div.logo {
 	position: absolute;

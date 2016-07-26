@@ -193,13 +193,14 @@
 	position: relative;
 	float: right;
 	display: block;
-	width: 118px;
+	width: 120px;
 	height: 30px;
-	right: 6px;
+	right: 5px;
 	color: black;
 	line-height:30px;
 	text-align: right;
-	padding-left: 13px;
+	margin-left: 18px;
+	/*padding-left: 13px;*/
 	pointer-events: none;
 }
 
