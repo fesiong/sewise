@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>vodTangerine皮肤demo</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+	</head>
+	<body>
+		
+		<script>
+		    
+		    var config={
+		    	elid:"con1",
+		    	autostart:true,
+		        type:"m3u8",
+		        skinType:"tangerine",//必须设置此属性
+		    	url:"http://playlists/x36xhzz/x36xhzz.m3u8",
+		    	skin:"vodTangerine"
+		    };
+		   
+		     $(document).ready(dowReady);
+		    
+		    var player;//播放器
+		   
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+			   player.startup();//启动播放器
+			   
+		    }
+		   
+		   
+		</script>
+		<div id="con1" style="width:640px;height:352px;background-color: aqua;"></div>
+		
+	</body>
+</html>

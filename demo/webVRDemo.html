@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>360度全景视频</title>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<style>
+			.des{
+				font-size: 26;
+				color: red;
+				font-weight: 500;
+				position: absolute;
+				top:610px;
+				left:100px;
+			}
+			.inputDiv{
+			  position: absolute;
+			  top: 640px;
+			}
+		</style>
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+		<script src="../dist/plugin/sewise.player.vr.min.js"></script>
+		 <!-- Fragment shader program -->
+       <script id="shader-fs" type="x-shader/x-fragment">
+          varying mediump vec3 vDirection;
+          uniform mediump float eye;
+          uniform mediump float projection;
+
+          uniform sampler2D uSampler;
+
+          #define PI 3.1415926535897932384626433832795
+
+          mediump vec4 directionToColor(mediump vec3 direction, mediump float eye, mediump float projection) {
+         /*
+          * Input: a direction.  +x = right, +y = up, +z = backward.
+          *        an eye. left = 0, right = 1.
+          *        a projection. see ProjectionEnum in JS file for enum
+          * Output: a color from the video
+          *
+          * Bug alert: the control flow here may screw up texture filtering.
+          */
+
+          mediump float theta = atan(direction.x, -1.0 * direction.z);
+          mediump float phi = atan(direction.y, length(direction.xz));
+
+         /*
+          * The Nexus 7 and the Moto X (and possibly many others) have
+          * a buggy atan2 implementation that screws up when the numerator
+          * (the first argument) is too close to zero.  (The 1e-4 is carefully
+          * chosen: 1e-5 doesn't fix the problem.
+          */
+         if (abs(direction.x) < 1e-4 * abs(direction.z))
+         theta = 0.5*PI * (1.0 - sign(-1.0 * direction.z));
+         if (abs(direction.y) < 1e-4 * length(direction.xz))
+         phi = 0.0;
+
+        // Uncomment to debug the transformations.
+        // return vec4(theta / (2. * PI) + 0.5, phi / (2. * PI) + 0.5, 0., 0.);
+
+       if (projection == 0.) {
+          // Projection == 0: equirectangular projection
+          return texture2D(uSampler, vec2(mod(theta / (2.0*PI), 1.0), phi / PI + 0.5));
+        } else {
+          // Projection == 1: equirectangular top/bottom 3D projection
+          eye = 1. - eye;
+          return texture2D(uSampler, vec2(mod(theta / (2.0*PI), 1.0), ((phi / PI + 0.5) + eye)/ 2.));
+        }
+       }
+
+        void main(void) {
+           gl_FragColor = directionToColor(vDirection, eye, projection);
+        }
+      </script>
+
+     <!-- Vertex shader program -->
+     <script id="shader-vs" type="x-shader/x-vertex">
+       attribute mediump vec2 aVertexPosition;
+
+       uniform mediump mat4 proj_inv;
+
+       varying mediump vec3 vDirection;
+
+       void main(void) {
+          gl_Position = vec4(aVertexPosition, 1.0, 1.0);
+          mediump vec4 projective_direction = proj_inv * gl_Position;
+          vDirection = projective_direction.xyz / projective_direction.w;
+        }
+     </script>
+	</head>
+	<body>
+		<script>
+		    var config={
+		    	elid:"con1",
+		    	autostart:false,
+		    	title:"迪拜全景视频",
+                url:"http://cache.utovr.com/201511190437045272.mp4",
+                skin:"vodWhite"  
+		    };
+		  
+		    $(document).ready(dowReady);
+		    
+		    var player;
+		    var webvr;//全景视频插件
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+		       webvr=new SewiseWebVR();
+		       player.plugins={"sewisevr":webvr};//注册插件
+			   player.startup();
+		    }
+		   
+		   
+			function backHandle(){
+				webvr.returnCenter();
+			}
+			function btnClick(){
+				var url=$("#txtID").val();
+				player.toPlay(url,"塔希提岛",0,true);
+			}
+			function splitScreen(){
+				SewiseWebVR.split=!SewiseWebVR.split;
+			}
+		</script>
+		<div id="con1" style="position:absolute;top:0px;width:1080px;height:600px;background-color: aqua;">
+			
+		</div>
+		<div class="des">请按键盘上的W - A - S - D - Q - E键 
+			                         支持Firefox和Google Chrome 浏览器</div>
+			                         
+		<div class="inputDiv">
+		输入新的播放地址：<input type="text" id="txtID" style="width:400px;" value="http://cache.utovr.com/201601301236399606.mp4" />
+		<button onclick="btnClick()">点击播放</button>
+		<button onclick="backHandle()">回到初始观察点</button>
+		<button onclick="splitScreen()">切换画面</button>
+		</div>
+	</body>
+</html>

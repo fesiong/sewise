@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>播放器嵌入方式Demo</title>
+		<script src="../dist/js/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="con1" style="width:440px;height:352px;background-color: aqua;">
+	 	   <script src="../dist/sewise.player.min.js#url=rtmp://192.168.1.21:1935/livestream/58uk9k77&autostart=true&skin=liveWhite"></script>
+	    </div>
+		<script>
+		    
+          $(document).ready(dowReady);
+
+         var player;
+
+         function dowReady() {
+		     player=window.SewisePlayer;
+
+		/*
+		 * 视频开始播放后回调的函数
+		 */
+		 player.on("start", function() {
+		 	console.log("播放开始");
+		 });
+		 /*
+          *视频暂停播放后回调
+         */
+         player.on("pause",function(){
+         	console.log("播放暂停");
+         });
+ 
+         /*
+          *视频停止播放后回调
+          */
+         player.on("ended",function(){
+         	console.log("播放停止");
+         });
+ 
+        /*
+         * 视频时长改变时回调
+         */
+        player.on("durationChange",function(){
+        	console.log("视频时长改变");
+        });
+
+        /*
+         *视频实时播放回调
+         */
+        player.on("timeupdate",function(){
+        });
+ 
+        /*
+         * 视频加载进度回调
+         * @parame pt
+         */
+       player.on("loadProgress",function(pt){
+       	  console.log("加载进度"+pt);
+       });
+
+       /*
+        * 视频缓冲开始回调
+        */
+       player.on("bufferBegin",function(){
+       	console.log("缓冲开始");
+       });
+
+       /*
+        * 视频缓冲结束回调
+        */
+      player.on("bufferComplete",function(){
+      	console.log("缓冲结束");
+      });
+
+      /*
+       * 播放器获取到视频metadata信息后回调
+       */
+       player.on("metadata",function(obj){
+       	console.log("视频元数据",obj);
+      });
+
+      /*
+       * 视频时移播放后回调的函数
+       */
+       player.on("seek",function(e){
+       	console.log("视频时移"+e);
+       });
+	     
+	};
+			
+	//直播接口调用方法
+	function startPlay(){
+		player.play();
+	}
+	function livePlay(){
+		player.live();
+	}
+	function playPause(){
+		player.pause();
+	}
+	function seekTo(){
+		player.seek("20151030100646");
+	}
+	function playStop(){
+		player.stop();
+	}
+	function changeVolume(){
+		player.setVolume(0.1);
+	}
+	function getLiveTime(){
+		alert(player.liveTime());
+	}
+	function getPlayTime(){
+		alert(player.playTime());
+	}
+	 function setMuted(){
+	 	player.muted(true);
+	 }
+	function switchVideo(){
+		player.toPlay("rtmp://192.168.1.21:1935/livestream/58uk9k77", "LiveDemo", 0, true);
+	}
+	 </script>
+	 
+	 <div style="padding-top: 50px;">
+	<div style="padding-right: 20px;float: left;">[直播接口]</div>
+	<div style="padding-right: 20px;float: left;"><a href="javascript:startPlay();">播放</a></div>
+	<div style="padding-right: 20px;float: left;"><a href="javascript:playPause();">暂停</a></div>
+	<div style="padding-right: 20px;float: left;"><a href="javascript:seekTo();">跳转</a></div>
+	<div style="padding-right: 20px;float: left;"><a href="javascript:playStop();">停止</a></div>
+	<div style="padding-right: 15px;float: left;"><a href="javascript:livePlay();">直播</a></div>
+	<div style="padding-right: 20px;float: left;"><a href="javascript:changeVolume();">更改音量</a></div>
+	<div style="padding-right: 20px;float: left;"><a href="javascript:getLiveTime();">直播时间</a></div>
+	<div style="padding-right: 20px;float: left;"><a href="javascript:getPlayTime();">获取当前时间</a></div>
+	 <div style="padding-right: 20px;float: left;"><a href="javascript:setMuted();">静音</a></div> 
+	<div style="padding-right: 20px;float: left;"><a href="javascript:switchVideo();">切换视频</a></div>
+	<br clear="all"/>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>截图插件(同时按下键盘Z+X+C键),不支持m3u8视频截图</title>
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/plugin/sewise.player.screenshot.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+	</head>
+	<body>
+		<script>
+		    /**
+		     *  截图插件(同时按下键盘Z+X+C键截图),不支持m3u8视频截图
+		     */
+		    var host="http://192.168.1.114/sewiseplayer_js_3.0.0/bin/"
+		    var config={//flash模式，不支持m3u8视频截图
+		    	elid:"con1",
+		    	autostart:true,
+		    	primary:"flash",
+                url:host+"video/test5.flv",
+		    	skin:"vodWhite"
+		    };
+//		    var config={ //htm5模式，支持火狐和谷歌浏览器
+//		    	elid:"con1",
+//		    	autostart:true,
+//              url:host+"video/test.mp4",
+//		    	skin:"vodWhite"
+//		    };
+		    $(document).ready(dowReady);
+		    
+		    var player;
+		    var screenshot;
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+		       screenshot=new SewiseScreenshot();
+		       player.plugins={"screenshot":screenshot};
+			   player.startup();
+              
+             
+		    }
+		  
+		   
+			
+			
+		</script>
+		<div id="con1" style="position:absolute;top:10px;width:640px;height:480px;background-color: aqua;">
+			
+		</div>
+	</body>
+</html>

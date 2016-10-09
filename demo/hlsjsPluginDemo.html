@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浏览器播放m3u8视频插件</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+		<script src="../dist/plugin/sewise.player.hlsjs.min.js"></script>
+	</head>
+	<body>
+		
+		<script>
+		   
+		    var config={
+		    	elid:"con1",
+		    	autostart:true,
+		    	type:"m3u8",
+		    	hlsjs:true,//优先使用浏览器播放m3u8视频
+		    	url:"http://7xnprv.com1.z0.glb.clouddn.com/vedio.m3u8",
+		    	skin:"vodWhite"//vodFlowPlayer"
+		    };
+		   
+		     $(document).ready(dowReady);
+		    
+		    var player;//播放器
+		    var hlsjs;//浏览器播放m3u8插件
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+		       if(Sewise.SewisePlayer.supportHls){//判断是否支持浏览器播放m3u8
+		          hlsjs=new SewiseHlsJs();
+		          player.plugins={"hls":hlsjs};	//注册插件
+		       }
+			   player.startup();//启动播放器
+			   
+		    }
+		    function btnClick(){
+            	var url=$("#txtID").val();
+            	player.toPlay(url,"标题",0,true);
+            }
+		   
+		</script>
+		<div id="con1" style="width:640px;height:352px;background-color: aqua;"></div>
+		<br/>
+		输入新的播放地址：<input type="text" id="txtID" style="width:400px;" />
+		<button onclick="btnClick()">点击播放</button>
+	</body>
+</html>

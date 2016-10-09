@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+	</head>
+	<body>
+		
+		<script>
+		    var host="http://192.168.1.111/sewiseplayer_js_3.0.0/bin/"
+		    var config={
+		    	elid:"con1",
+		    	autostart:true,
+		    	videosjsonurl:{
+                "programname":"标题地址",
+                "videos": [
+                    { "name":"普通", "selected":1,"url":host+"video/test.mp4" },
+                    { "name":"标清", "url":host+"video/test2.mp4" },
+                    { "name":"高清", "url":host+"video/test3.mp4" }
+                ]
+               },
+               "type":"mp4",
+		    	skin:"vodFlowPlayer"
+		    };
+		   
+		    $(document).ready(dowReady);
+		    
+		    var player;
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+			   player.startup();
+		    }
+			
+		</script>
+		<div id="con1" style="width:640px;height:352px;background-color: aqua;"></div>
+	
+		</div>
+		
+	</body>
+</html>

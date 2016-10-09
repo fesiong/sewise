@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+	</head>
+	<body>
+		
+		<script>
+		    var host="http://192.168.1.124/sewiseplayer_js_3.0.0/bin/"
+		    var config={
+		    	elid:"con1",
+		    	autostart:true,
+                url:host+"video/test.mp3",
+                server:"vod",
+                type:"mp3",
+                //primary:"flash",
+                title:"2016年的第一场雪",
+                fallbackurls:{
+                "mp3": host+"video/audio.mp3",
+                "ogg": host+"video/test.ogg"
+               },
+		    	skin:"vodRadio"
+		    };
+		  
+		    $(document).ready(dowReady);
+		    
+		    var player;
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+			   player.startup();
+              
+		    }
+		    
+			function playHandle(){
+				var url=host+"video/audio.mp3";
+				player.toPlay(url,"歌曲名字",0,true);
+			}
+			
+		</script>
+		<div id="con1" style="width:640px;height:200px;ackground-color: aqua;">
+			
+		</div>
+		<button onclick="playHandle()" style="position: relative;top:52px;left:550px">播放下一个</button>
+	</body>
+</html>

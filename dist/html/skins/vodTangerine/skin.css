@@ -1,0 +1,420 @@
+/*
+ * Skin for Sewise Player Plugin
+ * http://www.sewise.com/
+ * Skin Name: vodTangerine
+ * Copyright (c) 2010-2016 Sewise Ltd
+ * 
+ * Author: keyun
+ * Skin Version: 3.0.0 (sewise player 3.0.0)
+ * Date: 2016/3/17
+ */
+
+/*播放控制栏*/
+.vodTangerine div.sewise-player-ui div.controlbar {
+	position: absolute;
+	width: 100%;
+	height: 41px;
+	left: 0px;
+	bottom: 0px;
+	pointer-events: auto;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-bg {
+	position: absolute;
+	width: 100%;
+	height: 41px;
+	background: url("controlbar.png") 0px 0px repeat-x;
+	text-indent: -10000px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns {
+	position: absolute;
+	width: 100%;
+	margin: 0;
+	padding: 10px 0px 0px 0px;
+	overflow: hidden;
+	list-style-type: none;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li {
+	float: left;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a {
+	display:block;
+	width: 21px;
+	height: 21px;
+	text-indent: -10000px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a:link{text-decoration:none;}
+
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-play {
+	background: url("controlbar.png") 0px -51px no-repeat;
+	margin-left: 17px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-play:hover {
+	background: url("controlbar.png") 0px -51px no-repeat;
+	margin-left: 17px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-pause {
+	background: url("controlbar.png") 0px -82px no-repeat;
+	margin-left: 17px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-pause:hover {
+	background: url("controlbar.png") 0px -82px no-repeat;
+	margin-left: 17px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-next {
+	background: url("controlbar.png") 0px -113px no-repeat;
+	margin-left: 17px;
+	margin-right: 17px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-next:hover {
+	background: url("controlbar.png") 0px -113px no-repeat;
+	margin-left: 17px;
+	margin-right: 17px;
+}
+
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns div.controlbar-progress {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 20px;
+	left: 0px;
+	top: 0px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-progress div.controlbar-progress-totalline {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	top: 0px;
+	background: url("controlbar.png") 0px -236px ;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-progress div.controlbar-progress-loadedline {
+	position: absolute;
+	width: 0%;
+	height: 20px;
+	top: 0px;
+	background: url("controlbar.png") 0px -266px repeat-x;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-progress div.controlbar-progress-playedline {
+	position: absolute;
+	width: 0%;
+	height: 20px;
+	top: 0px;
+	background: url("controlbar.png") 0px -296px repeat-x;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-progress div.controlbar-progress-seekline {
+	position: absolute;
+	width: 100%;
+	height: 20px;
+	top: 0px;
+	background: url("controlbar.png") 0px -326px repeat-x;
+	cursor: pointer;
+	
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-progress div.controlbar-progress-playpoint {
+	position: absolute;
+	width: 2px;
+	height: 20px;
+	left: 0%;
+	background: url("controlbar.png") 0px -356px no-repeat;
+	cursor: pointer;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-progress div.controlbar-progress-playpoint:hover {
+	background: url("controlbar.png") 0px -356px no-repeat;
+}
+
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li.right-float {
+	float: right;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-fullscreen {
+	background: url("controlbar.png") 0px -174px no-repeat;
+	margin-right: 15px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-fullscreen:hover {
+	background: url("controlbar.png") 0px -174px no-repeat;
+	margin-right: 15px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-normalscreen {
+	background: url("controlbar.png") 0px -205px no-repeat;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-normalscreen:hover {
+	background: url("controlbar.png") 0px -205px no-repeat;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns div.controlbar-volumeline {
+	position: relative;
+	float: left;
+	width: 37px;
+	height: 20px;
+	margin-left: 15px;
+	top: 0px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-volumeline div.controlbar-volumeline-bg {
+	/*position: absolute;
+	width: 100%;
+	height: 20px;
+	top: 14px;
+	background-color: rgba(133, 122, 106, 0.6);*/
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-volumeline div.controlbar-volumeline-volume {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	background: url("controlbar.png") -47px -144px;
+	pointer-events: none;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-volumeline div.controlbar-volumeline-dragger {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	background: url("controlbar.png") 0px -144px;
+	cursor: pointer;
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-volumeline div.controlbar-volumeline-point {
+	/*position: absolute;
+	width: 12px;
+	height: 12px;
+	border-radius: 14px;
+	top: 9px;
+	left: 50%;
+	background-color: #000;
+	cursor: pointer;*/
+}
+.vodTangerine div.sewise-player-ui div.controlbar div.controlbar-volumeline div.controlbar-volumeline-point:hover {
+	background-color: #000;
+	box-shadow: 0px 0px 10px #000;
+}
+
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns .clarity-switch-btn {
+	background: url("controlbar.png") 0px -622px no-repeat;
+	width: 42px;
+	height: 23px;
+	margin-left: 15px;
+	margin-right: 15px;
+	cursor:pointer;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns .clarity-switch-btn:hover {
+	background: url("controlbar.png") 0px -655px no-repeat;
+	width: 42px;
+	height: 23px;
+	margin-left: 15px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns .clarity-switch-btn .clarity-btn-text {
+	display: block;
+	text-align: center;
+	line-height: 23px;
+	width: 42px;
+	height: 23px;
+	pointer-events: none;
+}
+.vodTangerine div.sewise-player-ui div.controlbar .controlbar-clarity-window{
+	position: absolute;
+	/*pointer-events: none;*/
+	width: 93px;
+	height: 126px;
+	background: url("controlbar.png") 0px -457px no-repeat;
+	right: 22px;
+	bottom: 31px;
+	padding-top: 0px;
+	margin: 0px;
+	display: none;
+}
+.vodTangerine div.sewise-player-ui div.controlbar .controlbar-clarity-window ul{
+	list-style-type: none;
+	text-align: center;
+	top:0px;
+	padding: 0px 0px 0px 0px;
+}
+.vodTangerine div.sewise-player-ui div.controlbar .controlbar-clarity-window ul li{
+	width: 93px;
+	height: 32px;
+	line-height: 32px;
+	cursor: pointer;
+}
+.vodTangerine div.sewise-player-ui div.controlbar .controlbar-clarity-window ul li:hover{
+	background: url("controlbar.png") 0px -413px no-repeat;
+}
+/*.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-soundopen {
+	background: url("controlbar.png") 0px -150px no-repeat;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns li a.controlbar-btns-soundopen:hover {
+	background: url("controlbar.png") -38px -150px no-repeat;
+}*/
+.vodTangerine div.sewise-player-ui div.controlbar .controlbar-overtime {
+	position: absolute;
+	background: url("controlbar.png") 0px -584px no-repeat;
+	width: 60px;
+	height: 28px;
+	top:-28px;
+	display: none;
+}
+.vodTangerine div.sewise-player-ui div.controlbar .controlbar-overtime .controlbar-overtime-text{
+	display: block;
+	width: 60px;
+	line-height: 28px;
+	text-align: center;
+	color: #ffffff;
+}
+.vodTangerine div.sewise-player-ui div.controlbar .controlbar-overline {
+	position: absolute;
+	background: url("controlbar.png") 0px -386px no-repeat;
+	width: 1px;
+	height: 20px;
+	top:10px;
+	cursor: pointer;
+	display: none;
+	pointer-events: none;
+}
+.vodTangerine div.sewise-player-ui div.controlbar ul.controlbar-btns div.controlbar-totaltime {
+	position: absolute;
+	display: block;
+	width: 50px;
+	color: 0xffffff;
+	text-align: right;
+	padding: 0px;
+	right: 165px;
+	height: 30px;
+	line-height:30px;
+	top:5px;
+	pointer-events: none;
+}
+.vodTangerine div.sewise-player-ui  div.controlbar-playtime {
+	position:absolute;
+	display: block;
+	width: 50px;
+	height: 30px;
+	color: 0xffffff;
+	left: 92px;
+	top:5px;
+	line-height:30px;
+	text-align: center;
+	pointer-events: none;
+	
+}
+
+/*logo*/
+.vodTangerine div.sewise-player-ui div.logo {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+.vodTangerine div.sewise-player-ui div.logo a.logo-icon {
+	display: block;
+	width: 142px;
+	height: 27px;
+	background: url("logo.png") 0px 0px no-repeat;
+	text-indent: -10000px;
+	pointer-events: auto;
+}
+
+
+/*标题栏*/
+.vodTangerine div.sewise-player-ui div.topbar {
+	position: absolute;
+	width: 100%;
+	float: left;
+	
+	background-color: rgba(0, 0, 0, 0.3);
+	
+	/*color: white;
+	font-size: 0.8em;*/
+}
+.vodTangerine div.sewise-player-ui div.topbar div.topbar-program {
+	float: left;
+	padding: 5px;
+}
+.vodTangerine div.sewise-player-ui div.topbar div.topbar-program div.topbar-program-tip {
+	float: left;
+}
+.vodTangerine div.sewise-player-ui div.topbar div.topbar-program div.topbar-program-title {
+	float: left;
+}
+.vodTangerine div.sewise-player-ui div.topbar div.topbar-clock {
+	float: right;
+	padding: 5px;
+}
+
+
+/*缓冲进度条*/
+.vodTangerine div.sewise-player-ui div.buffer {
+	position: absolute;
+	width: 60px;
+	height: 80px;
+	left: 50%;
+	margin-left: -30px;
+	top: 50%;
+	margin-top: -40px;
+}
+.vodTangerine div.sewise-player-ui div.buffer div.buffer-bg {
+	position: absolute;
+	display: block;
+	width: 48px;
+	height: 48px;
+	left: 6px;
+	top: 6px;
+	
+	background: url("buffer.png") 0px 0px no-repeat;
+	text-indent: -10000px;
+	
+	animation: buffer-keyframes 1s linear 0s infinite;
+	-ms-animation: buffer-keyframes 1s linear 0s infinite;
+	-webkit-animation: buffer-keyframes 1s linear 0s infinite;
+	-moz-animation: buffer-keyframes 1s linear 0s infinite;
+	-o-animation: buffer-keyframes 1s linear 0s infinite;
+}
+@keyframes buffer-keyframes {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+@-ms-keyframes buffer-keyframes {
+	from { -ms-transform: rotate(0deg); }
+	to { -ms-transform: rotate(360deg); }
+}
+@-webkit-keyframes buffer-keyframes {
+	from { -webkit-transform: rotate(0deg); }
+	to { -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes buffer-keyframes {
+	from { -moz-transform: rotate(0deg); }
+	to { -moz-transform: rotate(360deg); }
+}
+@-o-keyframes buffer-keyframes {
+	from { -o-transform: rotate(0deg); }
+	to { -o-transform: rotate(360deg); }
+}
+.vodTangerine div.sewise-player-ui div.buffer div.buffer-text {
+	position: absolute;
+	left: 2px;
+	top: 60px;
+	font-size: 12px;
+}
+.vodTangerine div.sewise-player-ui div.buffer div.buffer-text div.buffer-text-tip,
+.vodTangerine div.sewise-player-ui div.buffer div.buffer-text div.buffer-text-bufferPt {
+	float: left;
+}
+
+
+/*开始播放大按钮*/
+/*.vodTangerine div.sewise-player-ui div.big-play-btn {
+	position: absolute;
+	left: 50%;
+	margin-left: -40px;
+	top: 50%;
+	margin-top: -35px;
+	overflow: hidden;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0);
+	pointer-events: auto;
+}
+.vodTangerine div.sewise-player-ui div.big-play-btn a.big-play-icon {
+	display:block;
+	width: 80px;
+	height: 70px;
+	
+	background: url("big_play_btn.png") 0px 0px no-repeat;
+	text-indent: -10000px;
+}
+.vodTangerine div.sewise-player-ui div.big-play-btn:hover a.big-play-icon {
+	background: url("big_play_btn.png") -80px 0px no-repeat;
+}*/

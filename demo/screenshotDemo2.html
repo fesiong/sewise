@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>m3u8截图(同时按下键盘Z+X+C键)</title>
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/plugin/sewise.player.screenshot.min.js"></script>
+		<script src="../dist/plugin/sewise.player.hlsjs.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+	</head>
+	<body>
+		<script>
+		    var host="http://192.168.1.114/sewiseplayer_js_3.0.0/bin/"
+		    var config={
+		    	elid:"con1",
+		    	autostart:true,
+		    	hlsjs:true,//优先使用浏览器播放m3u8视频,不使用flash插件
+		    	//primary:"flash",
+                //url:host+"video/test.mp4",
+                url:"http://192.168.1.114/sewiseplayer_js_3.0.0/bin/m3u8/dd.m3u8",
+		    	skin:"vodWhite"
+		        
+		    };
+		  
+		    $(document).ready(dowReady);
+		    
+		    var player;
+		    var screenshot;//截图插件
+		    var hlsjs;//浏览器播放m3u8插件
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+		       screenshot=new SewiseScreenshot();
+		       if(Sewise.SewisePlayer.supportHls){//只有支持这个插件的浏览器才能截m3u8视频
+		          hlsjs=new SewiseHlsJs();
+		       }
+		       player.plugins={"screenshot":screenshot,"hls":hlsjs};
+			   player.startup();
+              
+             
+		    }
+		 
+			
+		</script>
+		<div id="con1" style="position:absolute;top:10px;width:640px;height:352px;background-color: aqua;">
+			
+		</div>
+	</body>
+</html>

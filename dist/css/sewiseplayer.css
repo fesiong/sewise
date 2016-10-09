@@ -1,0 +1,89 @@
+.sewiseplayer-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left:0px;
+    top:0px;
+}
+.sewiseplayer-container ul>li a{
+	-webkit-transition: all; 
+	   -moz-transition: all;
+		 -o-transition: all;
+			transition: all;
+}
+.sewiseplayer-video{
+	position: absolute;
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+.sewiseplayer-video video{
+    background: black;
+    width: 100%;
+    height: 100%;
+}
+.sewiseplayer-skin{
+	position: absolute;
+	z-index: 30;
+	left:0px;
+	top:0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+/*.sewiseplayer-emptyiframe{
+	position: absolute; 
+	width: 100%; 
+	height: 80px; 
+	border: none;
+	margin: 0px;
+	z-index: 5;
+	background: #fff;
+	left:0;
+	top:0;
+	bottom: 0;
+	opacity: 0;
+}*/
+video::-webkit-media-controls {
+    display:none !important;
+}
+video::-webkit-media-controls-panel {
+  display: none!important;
+  -webkit-appearance: none;
+}
+
+video::-webkit-media-controls-play-button {
+  display: none!important;
+  -webkit-appearance: none;
+}
+video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+/*播放器皮肤控制元件最外层*/
+div.sewise-player-ui {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	color: white;
+	font-size: 14px;
+	font-family: 'Trebuchet MS' Verdana, Arial, sans-serif;
+	pointer-events: none;
+}
+div.sewise-player-ui *{
+	outline: none;
+}
+.sewiseplayer-poster-div{
+    position: absolute;
+    pointer-events: none;
+}
+.sewiseplayer-poster-img{
+	pointer-events: none;
+}
