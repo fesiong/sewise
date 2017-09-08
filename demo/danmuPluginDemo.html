@@ -11,19 +11,29 @@
 	</head>
 	<body>
 		<script>
-		    var host="http://192.168.1.124/sewiseplayer_js_3.0.0/bin/"
-		    var config={
+		    var config={//点播
 		    	elid:"con1",
 		    	autostart:true,
 		    	type:"mp4",
-                url:host+"test.mp4",
+                url:"video/test.mp4",
 		    	skin:"vodWhite"
+		    };
+		    var config2={//直播
+		    	elid:"con1",
+		    	autostart:true,
+		    	server:"live",
+                url:"rtmp://sewise.com/live/hks",
+		    	skin:"liveWhite"
 		    };
 		    var danmuParams={
                   height: "100%",  //弹幕区高度
                   width: "640",   //弹幕区宽度
                   zindex :20,   //弹幕区域z-index属性
                   speed:7000,      //滚动弹幕的默认速度（毫秒）
+                  //opacity:0.5,  //弹幕文字透明度
+                  //----循环参数
+                  //danmuLoop:true,
+                  //sumTime:150   //设置循环时间,150表示15秒循环一次
              };
 		     $(document).ready(dowReady);
 		    
@@ -62,7 +72,6 @@
                 danmu.addDanmu(data);
 		    }
 		    function btnClick3(){
-		    	//sendDanmuList(); return;
 		    	var txt = $("#txtID3").get(0).value;
                 var color = "yellow";
                 var position = 2;
@@ -70,13 +79,16 @@
                 var data={ "text":txt ,"color":color,"size":size,"position":position,"isnew":0};
                 danmu.addDanmu(data);
 		    }
+		    function btnClick4(){
+		    	sendDanmuList();
+		    }
 		    function sendDanmuList(){
-		    	var listData=[{ text:"这是滚动弹幕" ,color:"white",size:1,position:0,time:20},
-                { text:"我是绿巨人" ,color:"green",size:1,position:0,time:30},
-                { text:"滚动吧滚动" ,color:"green",size:1,position:0,time:100},
-                { text:"这是顶部弹幕" ,color:"yellow" ,size:1,position:1,time:30},
-                { text:"这是底部弹幕" , color:"red" ,size:1,position:2,time:9},
-                { text:"科比即将退役" ,color:"orange",size:1,position:1,time:30}
+		    	var listData=[{ text:"这是滚动弹幕" ,color:"white",size:1,position:0},
+                { text:"我是sewise" ,color:"green",size:1,position:0},
+                { text:"滚动吧滚动" ,color:"green",size:1,position:0},
+                { text:"这是顶部弹幕" ,color:"yellow" ,size:1,position:1},
+                { text:"这是底部弹幕" , color:"red" ,size:1,position:2},
+                { text:"科比已经退役" ,color:"orange",size:1,position:1}
                ];
                danmu.addDanmuList(listData);
 		    }
@@ -90,12 +102,19 @@
 		    	}
 		    	   
 		    }
+		    function destroy(){
+		    	player.dispose();
+		    	danmu.dispose();
+		    }
 		</script>
 		<div id="con1" style="width:640px;height:352px;background-color: aqua;"></div>
 		<br/>
 		<input type="text" id="txtID1" value="" /><button onclick="btnClick1()">发送滚动弹幕</button>
 		<input type="text" id="txtID2" value="" /><button onclick="btnClick2()">发送顶部弹幕</button>
 		<input type="text" id="txtID3" value="" /><button onclick="btnClick3()">发送底部弹幕</button>
+		<br/><br />
+		<button onclick="btnClick4()">发送多条弹幕</button>
 		<button id="btnOpen" onclick="btnOpenClick()">关闭弹幕</button>
+		<button  onclick="destroy()">销毁播放器</button>
 	</body>
 </html>

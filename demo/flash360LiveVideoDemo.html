@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>flash_rtmp直播全景视频</title>
+		<script src="../dist/js/jquery.min.js"></script>
+		<script src="../dist/sewise.player.min.js"></script>
+	</head>
+	<body>
+		
+		<script>
+			$(document).ready(dowReady);
+		   
+		    var config={
+		    	elid:"con1",
+		    	autostart:true,
+		    	url:"rtmp://192.168.1.227:1935/livestream/wantkm3t",
+		    	flashPlayerName:"SewisePlayer_360",
+		    	mediaMode: "panorama",
+		    	loadflashplugin:true,
+		    	skin:"none"
+		    };
+		   
+		    var player;
+		   
+		    function dowReady(){
+		       player=new Sewise.SewisePlayer(config);
+			   player.startup();
+		    }
+		    function btnClick(){
+		    	var url=$("#txtID").val();
+            	player.toPlay(url,"全景视频",0,true);
+		    }
+		</script>
+		<div id="con1" style="width:640px;height:400px;background-color: aqua;"></div>
+		<br/>
+		输入新的播放地址：<input type="text" id="txtID" style="width:400px;" value="" />
+		<button onclick="btnClick()">点击播放</button>
+	</body>
+</html>

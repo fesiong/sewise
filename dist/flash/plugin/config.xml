@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<!-- 插件描述，必须完整 -->
+	<plugin>
+	    <!-- 插件id -->
+	    <id>SewiseSkin</id>
+		<!-- 插件名称 -->
+		<name>皮肤插件</name>
+		<!-- 插件资源名称 -->
+		<file>SewiseSkin.swf</file>
+		<!-- 插件说明及作者信息 -->
+		<description>作者：keyun swf格式的皮肤插件,专门用于控制全景视频播放的皮肤</description>
+	</plugin>
+</root>

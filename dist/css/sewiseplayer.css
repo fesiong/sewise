@@ -11,6 +11,26 @@
 		 -o-transition: all;
 			transition: all;
 }
+.sewiseplayer-container .sewiseplayer-noflash-tip{
+	position: absolute;
+	width: 350px;
+	height: 24px;
+	left: 50%;
+	top:50%;
+	margin-left: -175px;
+	margin-top: -12px;
+	font-family: "microsoft yahei","微软雅黑";
+	font-size: 18px;
+	z-index: 38;
+	background-color: #FFFFFF;
+}
+
+.sewiseplayer-container .sewiseplayer-noflash-tip a{
+	color: #2fb3ff;
+}
+.sewiseplayer-container .sewiseplayer-noflash-tip a:hover{
+	color: #FF0000;
+}
 .sewiseplayer-video{
 	position: absolute;
     background: black;
